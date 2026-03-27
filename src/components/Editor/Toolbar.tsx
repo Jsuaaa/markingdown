@@ -45,7 +45,7 @@ export function Toolbar({ onImport, onSaveAs, onExportPDF, onExportHTML, onExpor
             <button className={styles.dropdownItem} onClick={() => { onSaveAs(); setShowSaveMenu(false); }}>
               Markdown (.md)
             </button>
-            <button className={styles.dropdownItem} onClick={() => { onExportPDF(); setShowSaveMenu(false); }}>
+            <button className={styles.dropdownItem} onClick={() => { console.log('[Toolbar] PDF clicked'); onExportPDF(); setShowSaveMenu(false); }}>
               PDF (.pdf)
             </button>
             <button className={styles.dropdownItem} onClick={() => { onExportHTML(); setShowSaveMenu(false); }}>
