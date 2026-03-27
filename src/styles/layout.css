@@ -1,0 +1,59 @@
+/* App Layout */
+
+.app-layout {
+  display: grid;
+  grid-template-rows: var(--titlebar-height) 1fr;
+  grid-template-columns: var(--sidebar-width) 1fr;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--editor-bg);
+}
+
+.app-layout.sidebar-collapsed {
+  grid-template-columns: 0 1fr;
+}
+
+/* TitleBar */
+.titlebar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--titlebar-bg);
+  border-bottom: 1px solid var(--titlebar-border);
+  -webkit-app-region: drag;
+  user-select: none;
+  position: relative;
+}
+
+.titlebar-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--titlebar-text);
+  opacity: 0.8;
+}
+
+/* macOS traffic lights spacing */
+.titlebar-traffic-pad {
+  width: 78px;
+  flex-shrink: 0;
+}
+
+/* Sidebar */
+.sidebar-container {
+  overflow: hidden;
+}
+
+/* Editor Area */
+.editor-area {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.editor-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

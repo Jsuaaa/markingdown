@@ -1,0 +1,143 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 12px;
+  flex-shrink: 0;
+}
+
+.headerTitle {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sidebar-text);
+  margin: 0;
+}
+
+.newBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--sidebar-text);
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.newBtn:hover {
+  background: var(--sidebar-hover);
+  color: var(--sidebar-text-active);
+}
+
+.tabList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 8px 8px;
+}
+
+/* Tab Item */
+.tabItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.1s;
+  margin-bottom: 2px;
+}
+
+.tabItem:hover {
+  background: var(--sidebar-hover);
+}
+
+.tabItem.active {
+  background: var(--sidebar-active);
+}
+
+.tabTitle {
+  flex: 1;
+  font-size: 13px;
+  color: var(--sidebar-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.tabItem.active .tabTitle {
+  color: var(--sidebar-text-active);
+  font-weight: 500;
+}
+
+.tabTitleInput {
+  flex: 1;
+  font-size: 13px;
+  font-family: var(--sans);
+  color: var(--sidebar-text-active);
+  background: var(--sidebar-bg);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 1px 6px;
+  outline: none;
+  min-width: 0;
+  line-height: 1.4;
+}
+
+.dirtyDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tab-dirty);
+  flex-shrink: 0;
+}
+
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--sidebar-text);
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s, background 0.1s;
+  flex-shrink: 0;
+}
+
+.tabItem:hover .closeBtn {
+  opacity: 1;
+}
+
+.closeBtn:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--sidebar-text);
+  font-size: 13px;
+  line-height: 1.5;
+}
