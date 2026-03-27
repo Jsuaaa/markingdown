@@ -46,8 +46,7 @@ function App() {
   useEffect(() => {
     if (editor && !editor.isDestroyed) {
       const md = activePlan?.markdown ?? '';
-      const html = getMarkdownStorage(editor).parser.parse(md);
-      editor.commands.setContent(html);
+      editor.commands.setContent(md);
     }
   }, [activeId]); // eslint-disable-line react-hooks/exhaustive-deps
 
