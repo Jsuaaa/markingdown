@@ -110,21 +110,9 @@ export function useFileOperations() {
     }
   }, [activePlan]);
 
-  const exportLaTeX = useCallback(async () => {
-    const api = getAPI();
-    console.log('[exportLaTeX] api:', !!api, 'activePlan:', !!activePlan);
-    if (!api || !activePlan) return;
-
-    try {
-      const filePath = await api.exportLaTeX(activePlan.markdown, activePlan.title);
-      if (filePath) {
-        showToast('Exported to LaTeX');
-      }
-    } catch (err) {
-      console.error('LaTeX export failed:', err);
-      showToast(`LaTeX export failed: ${err instanceof Error ? err.message : String(err)}`, 'error');
-    }
-  }, [activePlan]);
+  const exportLaTeX = useCallback(() => {
+    showToast('LaTeX export coming soon', 'info');
+  }, []);
 
   return { save, saveAs, open, exportPDF, exportHTML, exportLaTeX };
 }

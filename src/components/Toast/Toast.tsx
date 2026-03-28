@@ -16,7 +16,7 @@ export function ToastContainer() {
           onClick={() => removeToast(toast.id)}
         >
           <span className={styles.icon}>
-            {toast.type === 'success' ? '\u2713' : '\u2717'}
+            {toast.type === 'success' ? '\u2713' : toast.type === 'info' ? '\u2139' : '\u2717'}
           </span>
           <span className={styles.message}>{toast.message}</span>
         </div>

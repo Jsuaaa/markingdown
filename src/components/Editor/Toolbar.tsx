@@ -51,8 +51,8 @@ export function Toolbar({ onImport, onSaveAs, onExportPDF, onExportHTML, onExpor
             <button className={styles.dropdownItem} onClick={() => { onExportHTML(); setShowSaveMenu(false); }}>
               HTML (.html)
             </button>
-            <button className={styles.dropdownItem} onClick={() => { onExportLaTeX(); setShowSaveMenu(false); }}>
-              LaTeX (.tex)
+            <button className={styles.dropdownItemDisabled} onClick={() => { onExportLaTeX(); setShowSaveMenu(false); }}>
+              LaTeX (.tex) — coming soon
             </button>
           </div>
         )}

@@ -34,6 +34,10 @@
   background: #dc2626;
 }
 
+.info {
+  background: #2563eb;
+}
+
 .icon {
   flex-shrink: 0;
   font-weight: 700;

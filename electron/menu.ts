@@ -60,8 +60,8 @@ export function buildMenu(): Menu {
           click: () => sendToRenderer('menu:export-html'),
         },
         {
-          label: 'Export as LaTeX',
-          click: () => sendToRenderer('menu:export-latex'),
+          label: 'Export as LaTeX (coming soon)',
+          enabled: false,
         },
         ...(isMac ? [] : [{ type: 'separator' as const }, { role: 'quit' as const }]),
       ],

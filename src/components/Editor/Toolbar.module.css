@@ -76,3 +76,14 @@
   background: var(--toolbar-btn-hover);
   color: var(--toolbar-btn-active-text);
 }
+
+.dropdownItemDisabled {
+  composes: dropdownItem;
+  opacity: 0.45;
+  cursor: default;
+}
+
+.dropdownItemDisabled:hover {
+  background: transparent;
+  color: var(--toolbar-text);
+}
