@@ -42,9 +42,17 @@ function App() {
     extensions: getEditorExtensions(),
     content: activePlan?.markdown ?? '',
     onUpdate: ({ editor }) => {
-      if (!activeId) return;
       const md = getMarkdownStorage(editor).getMarkdown();
-      updatePlanContent(activeId, md);
+      const { activeId: currentActiveId } = usePlanStore.getState();
+
+      if (!currentActiveId) {
+        if (md.trim()) {
+          createPlan(md);
+        }
+        return;
+      }
+
+      updatePlanContent(currentActiveId, md);
     },
   });
 
