@@ -2,6 +2,8 @@ import { useTheme } from '../hooks/useTheme';
 
 interface TitleBarProps {
   title: string;
+  onToggleSidebar: () => void;
+  sidebarCollapsed: boolean;
 }
 
 function SunIcon() {
@@ -28,12 +30,30 @@ function MoonIcon() {
   );
 }
 
-export function TitleBar({ title }: TitleBarProps) {
+function SidebarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <line x1="9" y1="3" x2="9" y2="21" />
+    </svg>
+  );
+}
+
+export function TitleBar({ title, onToggleSidebar, sidebarCollapsed }: TitleBarProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="titlebar">
       <div className="titlebar-traffic-pad" />
+      <div className="titlebar-left-actions">
+        <button
+          className={`titlebar-sidebar-toggle${sidebarCollapsed ? ' collapsed' : ''}`}
+          onClick={onToggleSidebar}
+          title={sidebarCollapsed ? 'Show sidebar (Cmd+B)' : 'Hide sidebar (Cmd+B)'}
+        >
+          <SidebarIcon />
+        </button>
+      </div>
       <span className="titlebar-title">{title}</span>
       <div className="titlebar-actions">
         <button

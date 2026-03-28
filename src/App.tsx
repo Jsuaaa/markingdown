@@ -6,6 +6,7 @@ import { usePlanStore } from './store/planStore';
 import { useFileOperations } from './hooks/useFileOperations';
 import { useAutoSave } from './hooks/useAutoSave';
 import { useTheme } from './hooks/useTheme';
+import { useSidebar } from './hooks/useSidebar';
 import { AppLayout } from './components/AppLayout';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Toolbar } from './components/Editor/Toolbar';
@@ -33,6 +34,7 @@ function App() {
 
   useAutoSave();
   const { toggleTheme } = useTheme();
+  const { sidebarWidth, sidebarCollapsed, toggleSidebar, onResizeStart } = useSidebar();
 
   const editor = useEditor({
     extensions: getEditorExtensions(),
@@ -80,6 +82,9 @@ function App() {
       } else if (e.key === 'o') {
         e.preventDefault();
         open();
+      } else if (e.key === 'b' && !e.shiftKey) {
+        e.preventDefault();
+        toggleSidebar();
       } else if (e.key === 'l' && e.shiftKey) {
         e.preventDefault();
         toggleTheme();
@@ -92,7 +97,7 @@ function App() {
         }
       }
     },
-    [activeId, createPlan, closePlan, save, saveAs, open, toggleTheme]
+    [activeId, createPlan, closePlan, save, saveAs, open, toggleSidebar, toggleTheme]
   );
 
   useEffect(() => {
@@ -118,7 +123,14 @@ function App() {
   }, [createPlan, open, save, saveAs, exportPDF, exportHTML, exportLaTeX]);
 
   return (
-    <AppLayout sidebar={<Sidebar />} title={activePlan?.title ?? 'Markingdown'}>
+    <AppLayout
+      sidebar={<Sidebar />}
+      title={activePlan?.title ?? 'Markingdown'}
+      sidebarWidth={sidebarWidth}
+      sidebarCollapsed={sidebarCollapsed}
+      onToggleSidebar={toggleSidebar}
+      onResizeStart={onResizeStart}
+    >
       <Toolbar
         onImport={open}
         onSaveAs={saveAs}
