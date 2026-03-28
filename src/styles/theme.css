@@ -6,123 +6,139 @@
   --statusbar-height: 28px;
   --gutter-width: 60px;
 
-  /* TitleBar */
+  /* TitleBar (aliases resolved per-theme) */
   --titlebar-bg: var(--sidebar-bg);
   --titlebar-border: var(--sidebar-border);
   --titlebar-text: var(--sidebar-text);
-
-  /* Line numbers */
-  --line-number-color: #8b8fa3;
-  --gutter-bg: #f8f9fb;
-  --gutter-border: #e5e7eb;
 
   /* Typography */
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
 
-  /* Editor - Light */
-  --editor-bg: #ffffff;
+  /* Design tokens */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --tab-dirty: #ef4444;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+}
+
+/* ─── Light Mode (Warm Cream) ─── */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Editor */
+  --editor-bg: #F4F2D9;
   --editor-text: #1a1a2e;
   --editor-heading: #0d0d0d;
   --editor-link: #2563eb;
-  --editor-code-bg: #f3f4f6;
+  --editor-code-bg: #EBE9CE;
   --editor-code-text: #1f2937;
   --editor-blockquote-border: #6366f1;
-  --editor-blockquote-bg: rgba(99, 102, 241, 0.04);
-  --editor-table-border: #e5e7eb;
-  --editor-table-header-bg: #f9fafb;
-  --editor-selection: rgba(99, 102, 241, 0.15);
+  --editor-blockquote-bg: rgba(99, 102, 241, 0.06);
+  --editor-table-border: #D5D3B8;
+  --editor-table-header-bg: #EDEBCF;
+  --editor-selection: rgba(99, 102, 241, 0.18);
   --editor-cursor: #1a1a2e;
-  --editor-hr: #e5e7eb;
-  --editor-placeholder: #9ca3af;
+  --editor-hr: #D5D3B8;
+  --editor-placeholder: #8b8977;
 
-  /* Sidebar - Light */
-  --sidebar-bg: #f8f9fb;
-  --sidebar-border: #e5e7eb;
-  --sidebar-hover: #eef0f4;
-  --sidebar-active: #e0e4eb;
-  --sidebar-text: #4b5563;
-  --sidebar-text-active: #111827;
-  --sidebar-header: #111827;
+  /* Sidebar */
+  --sidebar-bg: #EDEBCF;
+  --sidebar-border: #D5D3B8;
+  --sidebar-hover: #E5E3C6;
+  --sidebar-active: #DCD9BD;
+  --sidebar-text: #5c5a44;
+  --sidebar-text-active: #1a1a0e;
+  --sidebar-header: #1a1a0e;
 
-  /* Toolbar - Light */
-  --toolbar-bg: #ffffff;
-  --toolbar-border: #e5e7eb;
-  --toolbar-btn-hover: #f3f4f6;
-  --toolbar-btn-active: #e0e4eb;
+  /* Toolbar */
+  --toolbar-bg: #F4F2D9;
+  --toolbar-border: #D5D3B8;
+  --toolbar-btn-hover: #EBE9CE;
+  --toolbar-btn-active: #DCD9BD;
   --toolbar-btn-active-text: #4f46e5;
-  --toolbar-text: #374151;
-  --toolbar-separator: #e5e7eb;
+  --toolbar-text: #3d3b28;
+  --toolbar-separator: #D5D3B8;
 
-  /* StatusBar - Light */
-  --statusbar-bg: #f9fafb;
-  --statusbar-border: #e5e7eb;
-  --statusbar-text: #6b7280;
+  /* StatusBar */
+  --statusbar-bg: #EDEBCF;
+  --statusbar-border: #D5D3B8;
+  --statusbar-text: #6b6952;
+
+  /* Line numbers / gutter */
+  --line-number-color: #8b8977;
+  --gutter-bg: #EDEBCF;
+  --gutter-border: #D5D3B8;
 
   /* UI */
-  --tab-dirty: #ef4444;
   --accent: #6366f1;
   --accent-hover: #4f46e5;
-  --danger: #ef4444;
-  --danger-hover: #dc2626;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --radius: 6px;
-  --radius-sm: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    /* Editor - Dark */
-    --editor-bg: #1a1b26;
-    --editor-text: #c0caf5;
-    --editor-heading: #e0e0e0;
-    --editor-link: #7aa2f7;
-    --editor-code-bg: #24283b;
-    --editor-code-text: #a9b1d6;
-    --editor-blockquote-border: #7aa2f7;
-    --editor-blockquote-bg: rgba(122, 162, 247, 0.06);
-    --editor-table-border: #2e3450;
-    --editor-table-header-bg: #1f2335;
-    --editor-selection: rgba(122, 162, 247, 0.2);
-    --editor-cursor: #c0caf5;
-    --editor-hr: #2e3450;
-    --editor-placeholder: #565f89;
+/* ─── Dark Mode (Tokyo Night) ─── */
+:root[data-theme="dark"] {
+  color-scheme: dark;
 
-    /* Sidebar - Dark */
-    --sidebar-bg: #16161e;
-    --sidebar-border: #1f2335;
-    --sidebar-hover: #1f2335;
-    --sidebar-active: #282e44;
-    --sidebar-text: #565f89;
-    --sidebar-text-active: #c0caf5;
-    --sidebar-header: #c0caf5;
+  /* Editor */
+  --editor-bg: #1a1b26;
+  --editor-text: #c0caf5;
+  --editor-heading: #e0e0e0;
+  --editor-link: #7aa2f7;
+  --editor-code-bg: #24283b;
+  --editor-code-text: #a9b1d6;
+  --editor-blockquote-border: #7aa2f7;
+  --editor-blockquote-bg: rgba(122, 162, 247, 0.06);
+  --editor-table-border: #2e3450;
+  --editor-table-header-bg: #1f2335;
+  --editor-selection: rgba(122, 162, 247, 0.2);
+  --editor-cursor: #c0caf5;
+  --editor-hr: #2e3450;
+  --editor-placeholder: #565f89;
 
-    /* Toolbar - Dark */
-    --toolbar-bg: #1a1b26;
-    --toolbar-border: #1f2335;
-    --toolbar-btn-hover: #24283b;
-    --toolbar-btn-active: #282e44;
-    --toolbar-btn-active-text: #7aa2f7;
-    --toolbar-text: #a9b1d6;
-    --toolbar-separator: #1f2335;
+  /* Sidebar */
+  --sidebar-bg: #16161e;
+  --sidebar-border: #1f2335;
+  --sidebar-hover: #1f2335;
+  --sidebar-active: #282e44;
+  --sidebar-text: #565f89;
+  --sidebar-text-active: #c0caf5;
+  --sidebar-header: #c0caf5;
 
-    /* StatusBar - Dark */
-    --statusbar-bg: #16161e;
-    --statusbar-border: #1f2335;
-    --statusbar-text: #565f89;
+  /* Toolbar */
+  --toolbar-bg: #1a1b26;
+  --toolbar-border: #1f2335;
+  --toolbar-btn-hover: #24283b;
+  --toolbar-btn-active: #282e44;
+  --toolbar-btn-active-text: #7aa2f7;
+  --toolbar-text: #a9b1d6;
+  --toolbar-separator: #1f2335;
 
-    /* UI */
-    --accent: #7aa2f7;
-    --accent-hover: #89b4fa;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  /* StatusBar */
+  --statusbar-bg: #16161e;
+  --statusbar-border: #1f2335;
+  --statusbar-text: #565f89;
 
-    /* Line numbers / gutter - Dark */
-    --line-number-color: #444b6a;
-    --gutter-bg: #16161e;
-    --gutter-border: #1f2335;
-  }
+  /* Line numbers / gutter */
+  --line-number-color: #444b6a;
+  --gutter-bg: #16161e;
+  --gutter-border: #1f2335;
+
+  /* UI */
+  --accent: #7aa2f7;
+  --accent-hover: #89b4fa;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Theme Transitions ─── */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+}
+
+:root[data-no-transition] * {
+  transition: none !important;
 }

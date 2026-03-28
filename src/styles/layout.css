@@ -39,6 +39,43 @@
   flex-shrink: 0;
 }
 
+/* Theme toggle */
+.titlebar-actions {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  -webkit-app-region: no-drag;
+}
+
+.titlebar-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--titlebar-text);
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.titlebar-theme-toggle:hover {
+  background: var(--sidebar-hover);
+  opacity: 1;
+}
+
+.titlebar-theme-toggle:active {
+  transform: scale(0.9);
+}
+
+.titlebar-theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
 /* Sidebar */
 .sidebar-container {
   overflow: hidden;

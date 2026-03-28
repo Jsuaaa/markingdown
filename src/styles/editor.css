@@ -297,46 +297,74 @@
   border-radius: var(--radius);
 }
 
-/* Syntax Highlighting - Tokyo Night inspired */
-.ProseMirror pre .hljs-keyword,
-.ProseMirror pre .hljs-selector-tag {
+/* Syntax Highlighting - Light (readable on cream) */
+:root[data-theme="light"] .ProseMirror pre .hljs-keyword,
+:root[data-theme="light"] .ProseMirror pre .hljs-selector-tag {
+  color: #7c3aed;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-string,
+:root[data-theme="light"] .ProseMirror pre .hljs-attr {
+  color: #16a34a;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-number,
+:root[data-theme="light"] .ProseMirror pre .hljs-literal {
+  color: #c2410c;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-comment {
+  color: #8b8977;
+  font-style: italic;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-function,
+:root[data-theme="light"] .ProseMirror pre .hljs-title {
+  color: #2563eb;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-type,
+:root[data-theme="light"] .ProseMirror pre .hljs-built_in {
+  color: #0891b2;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-variable,
+:root[data-theme="light"] .ProseMirror pre .hljs-params {
+  color: #1f2937;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-meta {
+  color: #b45309;
+}
+:root[data-theme="light"] .ProseMirror pre .hljs-punctuation {
+  color: #0891b2;
+}
+
+/* Syntax Highlighting - Dark (Tokyo Night) */
+:root[data-theme="dark"] .ProseMirror pre .hljs-keyword,
+:root[data-theme="dark"] .ProseMirror pre .hljs-selector-tag {
   color: #bb9af7;
 }
-
-.ProseMirror pre .hljs-string,
-.ProseMirror pre .hljs-attr {
+:root[data-theme="dark"] .ProseMirror pre .hljs-string,
+:root[data-theme="dark"] .ProseMirror pre .hljs-attr {
   color: #9ece6a;
 }
-
-.ProseMirror pre .hljs-number,
-.ProseMirror pre .hljs-literal {
+:root[data-theme="dark"] .ProseMirror pre .hljs-number,
+:root[data-theme="dark"] .ProseMirror pre .hljs-literal {
   color: #ff9e64;
 }
-
-.ProseMirror pre .hljs-comment {
+:root[data-theme="dark"] .ProseMirror pre .hljs-comment {
   color: #565f89;
   font-style: italic;
 }
-
-.ProseMirror pre .hljs-function,
-.ProseMirror pre .hljs-title {
+:root[data-theme="dark"] .ProseMirror pre .hljs-function,
+:root[data-theme="dark"] .ProseMirror pre .hljs-title {
   color: #7aa2f7;
 }
-
-.ProseMirror pre .hljs-type,
-.ProseMirror pre .hljs-built_in {
+:root[data-theme="dark"] .ProseMirror pre .hljs-type,
+:root[data-theme="dark"] .ProseMirror pre .hljs-built_in {
   color: #2ac3de;
 }
-
-.ProseMirror pre .hljs-variable,
-.ProseMirror pre .hljs-params {
+:root[data-theme="dark"] .ProseMirror pre .hljs-variable,
+:root[data-theme="dark"] .ProseMirror pre .hljs-params {
   color: #c0caf5;
 }
-
-.ProseMirror pre .hljs-meta {
+:root[data-theme="dark"] .ProseMirror pre .hljs-meta {
   color: #e0af68;
 }
-
-.ProseMirror pre .hljs-punctuation {
+:root[data-theme="dark"] .ProseMirror pre .hljs-punctuation {
   color: #89ddff;
 }

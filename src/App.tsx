@@ -5,6 +5,7 @@ import { getEditorExtensions } from './editor/editorConfig';
 import { usePlanStore } from './store/planStore';
 import { useFileOperations } from './hooks/useFileOperations';
 import { useAutoSave } from './hooks/useAutoSave';
+import { useTheme } from './hooks/useTheme';
 import { AppLayout } from './components/AppLayout';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Toolbar } from './components/Editor/Toolbar';
@@ -31,6 +32,7 @@ function App() {
   const { save, saveAs, open, exportPDF, exportHTML, exportLaTeX } = useFileOperations();
 
   useAutoSave();
+  const { toggleTheme } = useTheme();
 
   const editor = useEditor({
     extensions: getEditorExtensions(),
@@ -78,6 +80,9 @@ function App() {
       } else if (e.key === 'o') {
         e.preventDefault();
         open();
+      } else if (e.key === 'l' && e.shiftKey) {
+        e.preventDefault();
+        toggleTheme();
       } else if (e.key >= '1' && e.key <= '9') {
         e.preventDefault();
         const index = parseInt(e.key) - 1;
@@ -87,7 +92,7 @@ function App() {
         }
       }
     },
-    [activeId, createPlan, closePlan, save, saveAs, open]
+    [activeId, createPlan, closePlan, save, saveAs, open, toggleTheme]
   );
 
   useEffect(() => {
