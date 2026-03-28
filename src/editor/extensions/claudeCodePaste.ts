@@ -2,6 +2,7 @@ import { Extension } from '@tiptap/core';
 import { Plugin, PluginKey } from '@tiptap/pm/state';
 import { DOMParser as PmDOMParser } from '@tiptap/pm/model';
 import { cleanTerminalOutput, hasAnsiCodes } from '../../utils/terminalCleaner';
+import { isClaudePlan, convertPlanToMarkdown } from '../../utils/planConverter';
 
 export const ClaudeCodePaste = Extension.create({
   name: 'claudeCodePaste',
@@ -22,7 +23,11 @@ export const ClaudeCodePaste = Extension.create({
             if (html?.includes('data-pm-slice')) return false;
 
             event.preventDefault();
-            const cleaned = hasAnsiCodes(text) ? cleanTerminalOutput(text) : text;
+            let cleaned = hasAnsiCodes(text) ? cleanTerminalOutput(text) : text;
+
+            if (isClaudePlan(cleaned)) {
+              cleaned = convertPlanToMarkdown(cleaned);
+            }
 
             // Parse markdown to HTML with full block rendering
             // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -5,6 +5,7 @@ import { getEditorExtensions } from './editor/editorConfig';
 import { usePlanStore } from './store/planStore';
 import { useFileOperations } from './hooks/useFileOperations';
 import { useAutoSave } from './hooks/useAutoSave';
+import { useFileDrop } from './hooks/useFileDrop';
 import { useTheme } from './hooks/useTheme';
 import { useSidebar } from './hooks/useSidebar';
 import { AppLayout } from './components/AppLayout';
@@ -33,6 +34,7 @@ function App() {
   const { save, saveAs, open, exportPDF, exportHTML, exportLaTeX } = useFileOperations();
 
   useAutoSave();
+  useFileDrop();
   const { toggleTheme } = useTheme();
   const { sidebarWidth, sidebarCollapsed, toggleSidebar, onResizeStart } = useSidebar();
 

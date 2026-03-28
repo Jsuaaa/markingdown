@@ -6,6 +6,7 @@ interface ElectronAPI {
   saveFileAs: (content: string, defaultName: string, defaultDir?: string) => Promise<string | null>;
   openFile: () => Promise<{ filePath: string; content: string } | null>;
   readFile: (filePath: string) => Promise<string | null>;
+  getPathForFile: (file: File) => string;
 
   // Export
   exportPDF: (markdown: string, title: string) => Promise<string | null>;

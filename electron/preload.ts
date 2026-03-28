@@ -1,4 +1,4 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer, webUtils } from 'electron'
 
 contextBridge.exposeInMainWorld('electronAPI', {
   platform: process.platform,
@@ -12,6 +12,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
     ipcRenderer.invoke('file:open'),
   readFile: (filePath: string) =>
     ipcRenderer.invoke('file:read', filePath),
+  getPathForFile: (file: File) =>
+    webUtils.getPathForFile(file),
 
   // App
   getPlansDir: () =>
