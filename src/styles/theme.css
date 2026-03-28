@@ -43,6 +43,8 @@
   --editor-cursor: #1a1a2e;
   --editor-hr: #D5D3B8;
   --editor-placeholder: #8b8977;
+  --todo-border: #f59e0b;
+  --todo-bg: rgba(245, 158, 11, 0.1);
 
   /* Sidebar */
   --sidebar-bg: #EDEBCF;
@@ -98,6 +100,8 @@
   --editor-cursor: #c0caf5;
   --editor-hr: #2e3450;
   --editor-placeholder: #565f89;
+  --todo-border: #fbbf24;
+  --todo-bg: rgba(251, 191, 36, 0.08);
 
   /* Sidebar */
   --sidebar-bg: #16161e;

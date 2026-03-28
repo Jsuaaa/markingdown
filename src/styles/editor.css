@@ -157,6 +157,12 @@
   margin-bottom: 0;
 }
 
+/* TODO Annotations */
+.ProseMirror .todo-annotation {
+  border-left-color: var(--todo-border);
+  background: var(--todo-bg);
+}
+
 /* Lists */
 .ProseMirror ul,
 .ProseMirror ol {

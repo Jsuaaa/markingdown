@@ -11,7 +11,7 @@ export interface SlashItem {
   description: string;
   command: string;
   keywords: string;
-  category: 'blocks' | 'lists' | 'inline';
+  category: 'blocks' | 'lists' | 'inline' | 'annotations';
   shortcut?: string;
 }
 
@@ -36,6 +36,8 @@ const slashItems: SlashItem[] = [
   { title: 'Italic',        description: 'Italic text',             command: 'italic',      keywords: 'italic emphasis',             category: 'inline', shortcut: `${mod}I` },
   { title: 'Strikethrough', description: 'Crossed out text',        command: 'strike',      keywords: 'strike strikethrough',        category: 'inline', shortcut: `${mod}\u21e7X` },
   { title: 'Inline Code',   description: 'Inline code snippet',     command: 'code',        keywords: 'code inline mono',            category: 'inline', shortcut: `${mod}E` },
+  // Annotations
+  { title: 'To-Do',         description: 'Annotation for Claude',   command: 'todo',        keywords: 'todo annotation note review feedback change', category: 'annotations' },
 ];
 
 function filterItems(query: string): SlashItem[] {
@@ -66,6 +68,15 @@ function executeCommand(editor: Editor, range: { from: number; to: number }, com
     case 'italic':     editor.chain().focus().toggleItalic().run(); break;
     case 'strike':     editor.chain().focus().toggleStrike().run(); break;
     case 'code':       editor.chain().focus().toggleCode().run(); break;
+    case 'todo':
+      editor.chain().focus()
+        .setBlockquote()
+        .insertContent([
+          { type: 'text', marks: [{ type: 'bold' }], text: '[TODO]: ' },
+        ])
+        .unsetBold()
+        .run();
+      break;
   }
 }
 

@@ -5,11 +5,12 @@ import styles from './SlashMenu.module.css';
 
 export type { SlashItem };
 
-const categoryOrder: SlashItem['category'][] = ['blocks', 'lists', 'inline'];
+const categoryOrder: SlashItem['category'][] = ['blocks', 'lists', 'inline', 'annotations'];
 const categoryLabels: Record<SlashItem['category'], string> = {
   blocks: 'Blocks',
   lists: 'Lists',
   inline: 'Inline',
+  annotations: 'Annotations',
 };
 
 function groupByCategory(items: SlashItem[]): { category: SlashItem['category']; items: SlashItem[] }[] {

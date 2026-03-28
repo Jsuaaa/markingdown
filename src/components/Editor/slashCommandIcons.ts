@@ -16,4 +16,5 @@ export const slashCommandIcons: Record<string, string> = {
   italic: s('<line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/>'),
   strike: s('<path d="M16 4c-.5-1.5-2.5-3-5-3-3 0-5 2-5 4.5 0 2 1.5 3 3 3.5"/><path d="M8 20c.5 1.5 2.5 3 5 3 3 0 5-2 5-4.5 0-2-1.5-3-3-3.5"/><line x1="4" y1="12" x2="20" y2="12"/>'),
   code: s('<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>'),
+  todo: s('<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>'),
 };

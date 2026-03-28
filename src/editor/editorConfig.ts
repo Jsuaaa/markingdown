@@ -7,7 +7,7 @@ import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import Placeholder from '@tiptap/extension-placeholder';
 import { Markdown } from 'tiptap-markdown';
 import { common, createLowlight } from 'lowlight';
-import { ClaudeCodePaste, EscapeClearMarks, SlashCommands } from './extensions';
+import { ClaudeCodePaste, EscapeClearMarks, SlashCommands, TodoHighlight } from './extensions';
 
 const lowlight = createLowlight(common);
 
@@ -47,5 +47,6 @@ export function getEditorExtensions() {
     ClaudeCodePaste,
     EscapeClearMarks,
     SlashCommands,
+    TodoHighlight,
   ];
 }
