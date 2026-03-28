@@ -6,12 +6,17 @@ export const EscapeClearMarks = Extension.create({
   addKeyboardShortcuts() {
     return {
       Escape: ({ editor }) => {
-        const { from, to } = editor.state.selection;
-        const hasActiveMarks = editor.state.storedMarks?.length || (from === to && editor.state.doc.resolve(from).marks().length > 0);
+        const isBold = editor.isActive('bold');
+        const isItalic = editor.isActive('italic');
+        const isStrike = editor.isActive('strike');
 
-        if (!hasActiveMarks) return false;
+        if (!isBold && !isItalic && !isStrike) return false;
 
-        editor.commands.unsetAllMarks();
+        const chain = editor.chain().focus();
+        if (isBold) chain.toggleBold();
+        if (isItalic) chain.toggleItalic();
+        if (isStrike) chain.toggleStrike();
+        chain.run();
         return true;
       },
     };

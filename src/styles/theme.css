@@ -74,6 +74,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
     /* Editor - Dark */
     --editor-bg: #1a1b26;
     --editor-text: #c0caf5;
