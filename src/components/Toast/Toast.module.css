@@ -27,11 +27,13 @@
 }
 
 .success {
-  background: #16a34a;
+  background: #86efac;
+  color: #14532d;
 }
 
 .error {
-  background: #dc2626;
+  background: #fca5a5;
+  color: #7f1d1d;
 }
 
 .info {

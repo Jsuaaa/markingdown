@@ -51,8 +51,10 @@ export function useFileDrop() {
 
       for (const file of Array.from(files)) {
         const filePath = api.getPathForFile?.(file) ?? '';
-        const isMd = isMarkdownFile(filePath);
-        if (!filePath || !isMd) continue;
+        if (!filePath || !isMarkdownFile(filePath)) {
+          showToast('Only Markdown files can be imported', 'error');
+          continue;
+        }
 
         try {
           const content = await api.readFile(filePath);
