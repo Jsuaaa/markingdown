@@ -40,6 +40,20 @@ function App() {
 
   const editor = useEditor({
     extensions: getEditorExtensions(),
+    editorProps: {
+      attributes: {
+        spellcheck: 'false',
+      },
+      handleClick: (_view, _pos, event) => {
+        const link = (event.target as HTMLElement).closest('a');
+        if (link?.href) {
+          event.preventDefault();
+          window.open(link.href);
+          return true;
+        }
+        return false;
+      },
+    },
     content: activePlan?.markdown ?? '',
     onUpdate: ({ editor }) => {
       const md = getMarkdownStorage(editor).getMarkdown();

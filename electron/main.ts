@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu } from 'electron'
+import { app, BrowserWindow, Menu, shell } from 'electron'
 import path from 'node:path'
 import fs from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
@@ -20,6 +20,11 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: false,
     },
+  })
+
+  win.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url)
+    return { action: 'deny' }
   })
 
   if (process.env.VITE_DEV_SERVER_URL) {
