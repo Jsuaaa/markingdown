@@ -7,9 +7,22 @@
     <title>Markingdown</title>
     <script>
       (function() {
-        var s = localStorage.getItem('markingdown-theme');
-        var d = s === 'light' || s === 'dark' ? s
-          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        var builtInBase = { 'warm-cream': 'light', 'tokyo-night': 'dark', 'solarized-light': 'light', 'nord': 'dark', 'monokai': 'dark' };
+        var d = 'light';
+        try {
+          var stored = JSON.parse(localStorage.getItem('markingdown-themes') || '{}');
+          var id = stored.state && stored.state.activeThemeId;
+          if (id && builtInBase[id]) {
+            d = builtInBase[id];
+          } else if (id && stored.state.customThemes) {
+            var ct = stored.state.customThemes.find(function(t) { return t.id === id; });
+            if (ct) d = ct.baseTheme;
+          }
+        } catch(e) {
+          var old = localStorage.getItem('markingdown-theme');
+          d = old === 'dark' ? 'dark' : old === 'light' ? 'light'
+            : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
         document.documentElement.setAttribute('data-theme', d);
         document.documentElement.setAttribute('data-no-transition', '');
       })();

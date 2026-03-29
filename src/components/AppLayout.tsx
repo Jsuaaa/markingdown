@@ -9,6 +9,8 @@ interface AppLayoutProps {
   sidebarCollapsed: boolean;
   onToggleSidebar: () => void;
   onResizeStart: (e: React.MouseEvent) => void;
+  onOpenCustomizer: () => void;
+  themeCustomizer?: ReactNode;
 }
 
 export function AppLayout({
@@ -19,12 +21,14 @@ export function AppLayout({
   sidebarCollapsed,
   onToggleSidebar,
   onResizeStart,
+  onOpenCustomizer,
+  themeCustomizer,
 }: AppLayoutProps) {
   const columns = sidebarCollapsed ? '0px 1fr' : `${sidebarWidth}px 1fr`;
 
   return (
     <div className="app-layout" style={{ gridTemplateColumns: columns }}>
-      <TitleBar title={title} onToggleSidebar={onToggleSidebar} sidebarCollapsed={sidebarCollapsed} />
+      <TitleBar title={title} onToggleSidebar={onToggleSidebar} sidebarCollapsed={sidebarCollapsed} onOpenCustomizer={onOpenCustomizer} />
       <div className={`sidebar-container${sidebarCollapsed ? ' sidebar-collapsed' : ''}`}>
         {sidebar}
         {!sidebarCollapsed && (
@@ -34,6 +38,7 @@ export function AppLayout({
       <div className="editor-area">
         {children}
       </div>
+      {themeCustomizer}
     </div>
   );
 }

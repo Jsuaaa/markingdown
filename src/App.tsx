@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import type { Editor } from '@tiptap/core';
 import { getEditorExtensions } from './editor/editorConfig';
@@ -6,13 +6,14 @@ import { usePlanStore } from './store/planStore';
 import { useFileOperations } from './hooks/useFileOperations';
 import { useAutoSave } from './hooks/useAutoSave';
 import { useFileDrop } from './hooks/useFileDrop';
-import { useTheme } from './hooks/useTheme';
+import { useThemeEngine } from './hooks/useThemeEngine';
 import { useSidebar } from './hooks/useSidebar';
 import { AppLayout } from './components/AppLayout';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Toolbar } from './components/Editor/Toolbar';
 import { StatusBar } from './components/StatusBar/StatusBar';
 import { ToastContainer } from './components/Toast/Toast';
+import { ThemeCustomizer } from './components/ThemeCustomizer/ThemeCustomizer';
 import './styles/theme.css';
 import './styles/editor.css';
 import './styles/layout.css';
@@ -35,8 +36,9 @@ function App() {
 
   useAutoSave();
   const { isDragging } = useFileDrop();
-  const { toggleTheme } = useTheme();
+  const { toggleTheme } = useThemeEngine();
   const { sidebarWidth, sidebarCollapsed, toggleSidebar, onResizeStart } = useSidebar();
+  const [showCustomizer, setShowCustomizer] = useState(false);
 
   const editor = useEditor({
     extensions: getEditorExtensions(),
@@ -112,6 +114,9 @@ function App() {
       } else if (e.key === 'l' && e.shiftKey) {
         e.preventDefault();
         toggleTheme();
+      } else if (e.key === 't' && e.shiftKey) {
+        e.preventDefault();
+        setShowCustomizer((v) => !v);
       } else if (e.key >= '1' && e.key <= '9') {
         e.preventDefault();
         const index = parseInt(e.key) - 1;
@@ -121,7 +126,7 @@ function App() {
         }
       }
     },
-    [activeId, createPlan, closePlan, save, saveAs, open, toggleSidebar, toggleTheme]
+    [activeId, createPlan, closePlan, save, saveAs, open, toggleSidebar, toggleTheme, setShowCustomizer]
   );
 
   useEffect(() => {
@@ -154,6 +159,8 @@ function App() {
       sidebarCollapsed={sidebarCollapsed}
       onToggleSidebar={toggleSidebar}
       onResizeStart={onResizeStart}
+      onOpenCustomizer={() => setShowCustomizer(true)}
+      themeCustomizer={showCustomizer ? <ThemeCustomizer onClose={() => setShowCustomizer(false)} /> : undefined}
     >
       <Toolbar
         onImport={open}
