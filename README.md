@@ -18,7 +18,7 @@ Built with Electron, React, and TipTap.
 - **TODO annotations** — Special `[TODO]:` blockquotes for marking action items.
 
 <p align="center">
-  <img src="docs/images/slash-commands.png" alt="Slash commands menu" width="600">
+  <img src="docs/images/slash-commands.png" alt="Slash commands menu" width="300">
 </p>
 
 ### Claude Code Integration
@@ -41,14 +41,12 @@ Built with Electron, React, and TipTap.
 
 ### Export
 
-
 | Format   | Description                                    |
 | -------- | ---------------------------------------------- |
 | Markdown | Save raw `.md` files                           |
 | PDF      | Styled export via Electron's `printToPDF`      |
 | HTML     | Self-contained HTML with embedded CSS          |
 | LaTeX    | Export via Pandoc subprocess (requires Pandoc) |
-
 
 ### Theming
 
@@ -66,9 +64,7 @@ Built with Electron, React, and TipTap.
   <img src="docs/images/theme-customizer.png" alt="Theme customizer panel" width="700">
 </p>
 
-
 ### Keyboard Shortcuts
-
 
 | Shortcut             | Action                 |
 | -------------------- | ---------------------- |
@@ -83,9 +79,7 @@ Built with Electron, React, and TipTap.
 | `Cmd/Ctrl + 1-9`     | Switch to tab N        |
 | `Escape`             | Clear formatting marks |
 
-
 ## Tech Stack
-
 
 | Layer        | Technology                                             |
 | ------------ | ------------------------------------------------------ |
@@ -96,7 +90,6 @@ Built with Electron, React, and TipTap.
 | State        | Zustand (localStorage persistence)                     |
 | Highlighting | Lowlight (highlight.js)                                |
 | Export       | remark / rehype (HTML), Electron (PDF), Pandoc (LaTeX) |
-
 
 ## Project Structure
 
