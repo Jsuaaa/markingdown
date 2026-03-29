@@ -4,7 +4,7 @@ A WYSIWYG Markdown editor built for developers. Designed to visualize and edit p
 
 Built with Electron, React, and TipTap.
 
-Markingdown — Editor view
+![Markingdown — Editor view](docs/images/editor-content.png)
 
 ## Features
 
@@ -17,7 +17,9 @@ Markingdown — Editor view
 - **Task lists** — Interactive checkboxes that persist state.
 - **TODO annotations** — Special `[TODO]:` blockquotes for marking action items.
 
-
+<p align="center">
+  <img src="docs/images/slash-commands.png" alt="Slash commands menu" width="600">
+</p>
 
 ### Claude Code Integration
 
@@ -33,7 +35,9 @@ Markingdown — Editor view
 - **Reorderable tabs** — Drag to reorder plans in the sidebar.
 - **Persistent state** — All open plans are saved to localStorage and restored on launch.
 
-
+<p align="center">
+  <img src="docs/images/sidebar-tabs.png" alt="Sidebar with multiple tabs" width="450">
+</p>
 
 ### Export
 
@@ -53,8 +57,14 @@ Markingdown — Editor view
 - **Full color customizer** — Adjust editor background, text, headings, sidebar, toolbar, accents, code blocks, and borders.
 - **Custom themes** — Save and manage your own themes.
 
+<p align="center">
+  <img src="docs/images/theme-light.png" alt="Light theme" width="48%">
+  <img src="docs/images/theme-dark.png" alt="Dark theme" width="48%">
+</p>
 
-
+<p align="center">
+  <img src="docs/images/theme-customizer.png" alt="Theme customizer panel" width="700">
+</p>
 
 
 ### Keyboard Shortcuts
