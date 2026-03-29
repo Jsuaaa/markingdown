@@ -41,6 +41,38 @@
     "unified": "^11.0.5",
     "zustand": "^5.0.12"
   },
+  "build": {
+    "appId": "com.markingdown.app",
+    "productName": "Markingdown",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "dmg": {
+      "title": "Markingdown",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@types/node": "^24.12.0",
