@@ -50,8 +50,7 @@
       {
         "ext": "md",
         "name": "Markdown Document",
-        "role": "Editor",
-        "isMacOnly": true
+        "role": "Editor"
       }
     ],
     "directories": {
