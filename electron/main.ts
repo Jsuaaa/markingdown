@@ -8,6 +8,19 @@ import { buildMenu } from './menu'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
+let fileToOpen: string | null = null
+
+app.on('open-file', (event, path) => {
+  console.log('[main:open-file] path:', path)
+  event.preventDefault()
+  
+  if (app.isReady() && BrowserWindow.getAllWindows().length > 0) {
+    BrowserWindow.getAllWindows()[0].webContents.send('app:open-file', path)
+  } else {
+    fileToOpen = path
+  }
+})
+
 function createWindow() {
   const win = new BrowserWindow({
     width: 1200,
@@ -32,6 +45,13 @@ function createWindow() {
   } else {
     win.loadFile(path.join(__dirname, '../dist/index.html'))
   }
+
+  win.webContents.on('did-finish-load', () => {
+    if (fileToOpen) {
+      win.webContents.send('app:open-file', fileToOpen)
+      fileToOpen = null
+    }
+  })
 }
 
 app.whenReady().then(async () => {

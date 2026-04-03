@@ -151,6 +151,25 @@ function App() {
     return () => cleanups.forEach((cleanup) => cleanup());
   }, [createPlan, open, save, saveAs, exportPDF, exportHTML, exportLaTeX]);
 
+  // OS file open events (e.g., double clicking a .md file in Finder)
+  useEffect(() => {
+    if (!window.electronAPI?.onOpenFile) return;
+
+    return window.electronAPI.onOpenFile(async (filePath) => {
+      try {
+        const content = await window.electronAPI.readFile(filePath);
+        if (content !== null) {
+          const { createPlan, markSaved } = usePlanStore.getState();
+          const id = createPlan(content);
+          markSaved(id, filePath);
+          console.log('[App] Opened file from OS:', filePath);
+        }
+      } catch (err) {
+        console.error('Failed to open file from OS:', err);
+      }
+    });
+  }, []);
+
   return (
     <AppLayout
       sidebar={<Sidebar />}
