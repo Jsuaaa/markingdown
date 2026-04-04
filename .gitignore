@@ -24,3 +24,6 @@ release
 *.njsproj
 *.sln
 *.sw?
+
+# Astro landing page
+Page/.astro
