@@ -18,6 +18,9 @@ interface ElectronAPI {
 
   // Menu events
   onMenuEvent: (channel: string, callback: () => void) => () => void;
+  
+  // App events
+  onOpenFile: (callback: (filePath: string) => void) => () => void;
 }
 
 declare global {

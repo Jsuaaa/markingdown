@@ -32,4 +32,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
     ipcRenderer.on(channel, callback)
     return () => ipcRenderer.removeListener(channel, callback)
   },
+
+  // App events
+  onOpenFile: (callback: (filePath: string) => void) => {
+    const listener = (_event: import('electron').IpcRendererEvent, filePath: string) => callback(filePath)
+    ipcRenderer.on('app:open-file', listener)
+    return () => ipcRenderer.removeListener('app:open-file', listener)
+  },
 })
