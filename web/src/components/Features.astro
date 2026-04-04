@@ -1,0 +1,114 @@
+---
+const features = [
+  {
+    title: 'True WYSIWYG',
+    description: 'See your markdown rendered in real-time. No split panes, no preview toggle.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+  },
+  {
+    title: 'Slash Commands',
+    description: 'Type / for 18 formatting commands with fuzzy search, just like Notion.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 3L7 21"/></svg>`,
+  },
+  {
+    title: 'Syntax Highlighting',
+    description: '150+ languages with automatic detection. Code blocks look just right.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  },
+  {
+    title: 'Multi-Tab',
+    description: 'Work on multiple documents at once. Drag to reorder. Switch with Cmd+1-9.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 9h20"/><path d="M9 3v6"/></svg>`,
+  },
+  {
+    title: 'Keyboard Shortcuts',
+    description: 'Cmd+N, Cmd+S, Cmd+O, Cmd+B, and many more. Everything at your fingertips.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/><path d="M18 8h.01"/><path d="M6 12h.01"/><path d="M10 12h.01"/><path d="M14 12h.01"/><path d="M18 12h.01"/><path d="M6 16h12"/></svg>`,
+  },
+  {
+    title: 'Local & Private',
+    description: 'No cloud. No telemetry. No account needed. Your files stay on your machine.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  },
+];
+---
+
+<section id="features" class="features section">
+  <div class="container">
+    <h2 class="section-title features__title" data-animate>Everything you need to write</h2>
+    <p class="section-subtitle features__subtitle" data-animate style="--delay: 0.1s">
+      A clean, focused editor packed with the features developers actually use.
+    </p>
+
+    <div class="features__grid">
+      {features.map((f, i) => (
+        <div class="feature-card" data-animate style={`--delay: ${0.05 * i}s`}>
+          <div class="feature-card__icon" set:html={f.icon} />
+          <h3 class="feature-card__title">{f.title}</h3>
+          <p class="feature-card__desc">{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+  }
+
+  .features__title {
+    color: var(--dark-heading);
+  }
+
+  .features__subtitle {
+    color: var(--dark-muted);
+  }
+
+  .features__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.75rem;
+    border-radius: var(--radius-lg);
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.3s ease;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .feature-card__icon {
+    color: var(--accent-purple);
+    margin-bottom: 1rem;
+  }
+
+  .feature-card__title {
+    margin-bottom: 0.5rem;
+    color: var(--dark-heading);
+  }
+
+  .feature-card__desc {
+    color: var(--dark-muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 640px) {
+    .features__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .features__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
